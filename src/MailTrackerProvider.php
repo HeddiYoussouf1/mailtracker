@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\Blade;
 class MailTrackerProvider extends ServiceProvider
 {
     public function boot(){
-        $this->publishes([
-            __DIR__.'/../config/mailtracker.php' => config_path('mailtracker.php'),
-        ]);
+        
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->registerRoutes();
         Blade::directive('mailtracker', function ($input) {
@@ -37,7 +35,7 @@ class MailTrackerProvider extends ServiceProvider
     private function routeConfiguration()
     {
         return [
-            
+
             'namespace' => 'Heddiyoussouf\Mailtracker\Http\Controllers',
         ];
     }
