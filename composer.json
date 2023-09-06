@@ -1,6 +1,6 @@
 {
     "name": "heddiyoussouf/mailtracker",
-    "description": "nothing",
+    "description": "This package provides a simple yet effective solution to track email opens using an embedded image in Laravel applications. By embedding a unique image uri in emails, the package allows developers to identify when the email has been opened and viewed by the recipient.",
     "autoload": {
         "psr-4": {
             "Heddiyoussouf\\Mailtracker\\": "src/"

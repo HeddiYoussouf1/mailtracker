@@ -19,6 +19,7 @@ class MailTrackerController extends Controller
                     "user_agent"=>request()->userAgent(),
                 ]
         );
+        return response()->file(public_path(config("mailtracker.image")));
 
     }
     public function single_view($id)
@@ -37,6 +38,7 @@ class MailTrackerController extends Controller
 
 
          }
+         return response()->file(public_path(config("mailtracker.image")));
 
     }
 }
