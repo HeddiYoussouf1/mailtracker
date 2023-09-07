@@ -50,6 +50,33 @@ Embed the tracking functionality using the provided Blade directive in your emai
 
 blade
 
+## Styling the Tracking Image
+
+The MailTracker package embeds a tracking image at the footer of your emails. For greater customization and to ensure that the image seamlessly integrates with your email design, the image is tagged with a class and ID both named mailtracker-image.
+
+This means you can easily style or manipulate the tracking image using CSS or JavaScript in your email templates. Whether you're looking to adjust its positioning, size, opacity, or other properties, you have full control:
+Using the Class:
+
+```css
+
+.mailtracker-image {
+    /* Example: Set the image width */
+    width: 50px;
+}
+```
+
+Using the ID:
+
+```css
+
+#mailtracker-image {
+    /* Example: Hide the image */
+    display: none;
+}
+```
+
+Integrating this flexibility ensures that while you gain valuable insights from the tracking feature, the recipient's email viewing experience remains as designed and uninterrupted.
+
 > 👍 Info
 > 
 > Contributions are welcome! Please read the contribution guidelines before submitting any pull requests.
