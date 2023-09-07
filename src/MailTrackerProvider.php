@@ -13,15 +13,11 @@ class MailTrackerProvider extends ServiceProvider
         $this->registerRoutes();
         $this->registerAssets();
         $this->registerConfig();
-        Blade::directive('mailtracker', function ($input) {
-            return "<?php echo '<img src=\"' . $input . '\" class=\"mailtracker-image\" id=\"mailtracker-image\">'; ?>";
-        });
+        $this->registerMailtracker();
+
 
     }
 
-    public function register(){
-
-    }
     protected function registerRoutes()
     {
         Route::group($this->routeConfiguration(), function () {
@@ -53,6 +49,11 @@ class MailTrackerProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../assets' => public_path('/assets'),
         ], 'assets');
+    }
+    public function registerMailtracker(){
+        Blade::directive('mailtracker', function ($input) {
+            return "<?php echo '<img src=\"' . $input . '\" class=\"mailtracker-image\" id=\"mailtracker-image\">'; ?>";
+        });
     }
 
 }
