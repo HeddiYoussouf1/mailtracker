@@ -71,8 +71,7 @@ Styling the Image: The embedded image can be styled using its class **mailtracke
     }
 
 Config Customizations: Adjust the **mailtracker.php** config to specify a custom image or make other configurations.
-    php
-
+    
     return [
         'image' => 'assets/footer.png',
     ];
