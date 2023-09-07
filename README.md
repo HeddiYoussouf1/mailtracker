@@ -31,7 +31,7 @@ After installing, publish the configuration file:
 
 ```bash
 
-php artisan vendor:publish --provider=Heddiyoussouf\Mailtracker\MailTrackerProvider
+php artisan vendor:publish --provider="Heddiyoussouf\Mailtracker\MailTrackerProvider"
 ```
 
 This will publish a mailtracker.php config file:

@@ -29,7 +29,7 @@ class MailTrackerProvider extends ServiceProvider
         Route::group($this->routeConfiguration(), function () {
             $this->publishes([
                 __DIR__.'/../config/mailtracker.php' => config_path('mailtracker.php'),
-            ]);
+            ], 'config');
         });
     }
 
