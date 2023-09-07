@@ -1,83 +1,83 @@
-# MailTracker for Laravel
+# Mailtracker for Laravel
 
-Track email opens seamlessly in your Laravel applications using the MailTracker package. Get insights into when and how frequently your emails are viewed.
+heddiyoussouf/mailtracker provides an efficient way to track email opens in Laravel applications. It integrates seamlessly, leveraging embedded images to monitor when recipients view their emails.
 Table of Contents
 
     Features
     Installation
-    Configuration
     Usage
-    Contribution
-    License
+    Customizations
+    Conclusion
 
-## Features
+<a name="features"></a>
+### Features
 
-    Simple Integration: Slot into existing Laravel mailing workflows with ease.
-    Customizable Tracking Image: Use an image consistent with your email design.
-    Non-Intrusive Tracking: Passive tracking using natural email client behaviors.
+    Mail Model: Logs individual emails with details.
+    Mailtracker Model: Records email open actions with attributes such as ip and user_agent.
+    HasTracker Trait: Equips the Mail model with the ability to generate unique tracking URLs.
 
-## Installation
+<a name="installation"></a>
+### Installation
 
-Provide a brief guide on how to install the package using Composer. Example:
+Install via Composer:
 
-```bash
-composer require heddiyoussouf/mailtracker
-```
+    bash
 
-## Configuration
+    composer require heddiyoussouf/mailtracker
 
-After installing, publish the configuration file:
+If not using Laravel's package auto-discovery, register the service provider in config/app.php:
+
+    php
+
+    'providers' => [
+        // ...
+        Heddiyoussouf\Mailtracker\MailTrackerProvider::class,
+    ]
+
+<a name="usage"></a>
+### Usage
+
+Integrate the Mail and Mailtracker models as needed.
+Attach the HasTracker trait to your Mail model.
+Generate tracking URLs:
+    For individual emails: `$mail->singleView()`
+    For broadcast emails: `$mail->multipleView()`
+Embed the tracking image in the email's Blade view:
+
+    blade.php
+
+    @mailtracker($trackingURL)
+
+<a name="customizations"></a>
+### Customizations
+
+Publish Assets and Config:
+
+    bash
+
+    php artisan vendor:publish --provider="Heddiyoussouf\Mailtracker\MailTrackerProvider"
+
+Styling the Image: The embedded image can be styled using its class **mailtracker-image** or its ID **mailtracker-image**.
 
 
-```bash
+    css
+    
+    .mailtracker-image {
+        /* Your styles here */
+    }
+    /*or*/
+    #mailtracker-image {
+        /* Your styles here */
+    }
 
-php artisan vendor:publish --provider="Heddiyoussouf\Mailtracker\MailTrackerProvider"
-```
+Config Customizations: Adjust the **mailtracker.php** config to specify a custom image or make other configurations.
+    php
 
-This will publish a mailtracker.php config file:
+    return [
+        'image' => 'assets/footer.png',
+    ];
 
-```php
+<a name="conclusion"></a>
+### Conclusion
 
-return [
-    'image' => 'assets/footer.png',
-];
-```
-
-Adjust the image path to suit your design and preferences.
-Usage
-
-Embed the tracking functionality using the provided Blade directive in your email templates:
-
-blade
-
-## Styling the Tracking Image
-
-The MailTracker package embeds a tracking image at the footer of your emails. For greater customization and to ensure that the image seamlessly integrates with your email design, the image is tagged with a class and ID both named mailtracker-image.
-
-This means you can easily style or manipulate the tracking image using CSS or JavaScript in your email templates. Whether you're looking to adjust its positioning, size, opacity, or other properties, you have full control:
-Using the Class:
-
-```css
-
-.mailtracker-image {
-    /* Example: Set the image width */
-    width: 50px;
-}
-```
-
-Using the ID:
-
-```css
-
-#mailtracker-image {
-    /* Example: Hide the image */
-    display: none;
-}
-```
-
-Integrating this flexibility ensures that while you gain valuable insights from the tracking feature, the recipient's email viewing experience remains as designed and uninterrupted.
-
-> 👍 Info
-> 
-> Contributions are welcome! Please read the contribution guidelines before submitting any pull requests.
->
+Mailtracker simplifies email open tracking in Laravel. Through easy integration, detailed tracking, and flexible customization, it stands as a robust solution for all Laravel-based email campaigns.
