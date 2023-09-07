@@ -21,7 +21,7 @@ Table of Contents
 Provide a brief guide on how to install the package using Composer. Example:
 
 ```bash
-composer require your-namespace/mailtracker
+composer require heddiyoussouf/mailtracker
 ```
 
 ## Configuration
